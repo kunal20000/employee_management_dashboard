@@ -10,7 +10,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-blue-600 text-white p-4 flex justify-between">
+    <header className="bg-blue-600 text-white sm:flex p-4 flex justify-between">
       <h1 className="text-xl font-bold">Employee Management Dashboard
       </h1>
       <button

@@ -31,8 +31,8 @@ const EmployeeList: React.FC<Props> = ({
         <thead>
           <tr className="bg-blue-600 text-white">
             <th>Employee ID</th>
-            <th className="p-2">Profile Image</th>
-            <th className="p-2">Full Name</th>
+            <th className="p-2 whitespace-nowrap">Profile Image</th>
+            <th className="p-2 whitespace-nowrap">Full Name</th>
             <th className="p-2">Gender</th>
             <th className="p-2">DOB</th>
             <th className="p-2">State</th>
@@ -55,27 +55,31 @@ const EmployeeList: React.FC<Props> = ({
               </td>
               <td className="p-2 text-center capitalize">{emp.fullName}</td>
               <td className="p-2 text-center">{emp.gender}</td>
-              <td className="p-2 text-center">{emp.dob}</td>
+              <td className="p-2 text-center whitespace-nowrap">{emp.dob}</td>
               <td className="p-2 text-center">{emp.state}</td>
               <td className="p-2 text-center">
-                <StatusToggle
-                  checked={emp.isActive}
-                  onChange={() => onToggle(emp.id)}
-                />
+                <div className="flex justify-center">
+                  <StatusToggle
+                    checked={emp.isActive}
+                    onChange={() => onToggle(emp.id)}
+                  />
+                </div>
               </td>
               <td className="p-2 space-x-2 text-center">
-                <button onClick={() => onEdit(emp)} className="text-blue-600">
-                  <BiEditAlt size={20} />
-                </button>
-                <button
-                  onClick={() => onDelete(emp.id)}
-                  className="text-red-600"
-                >
-                  <MdDeleteOutline size={20} />
-                </button>
-                <button onClick={printList} className="text-blue-600">
-                  <HiOutlinePrinter size={20} />
-                </button>
+                <div className="flex items-center justify-center gap-2">
+                  <button onClick={() => onEdit(emp)} className="text-blue-600">
+                    <BiEditAlt size={20} />
+                  </button>
+                  <button
+                    onClick={() => onDelete(emp.id)}
+                    className="text-red-600"
+                  >
+                    <MdDeleteOutline size={20} />
+                  </button>
+                  <button onClick={printList} className="text-blue-600">
+                    <HiOutlinePrinter size={20} />
+                  </button>
+                </div>
               </td>
             </tr>
           ))}
